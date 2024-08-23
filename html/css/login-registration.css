@@ -1,0 +1,102 @@
+body {
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	background: url('./icons/bus.jpg') no-repeat center center fixed;
+	background-size: cover;
+	position: relative;
+}
+
+/* Dark overlay */
+body::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5); /* Adjust darkness here */
+	z-index: 1;
+}
+
+.container {
+    width: 100%; /* Set width to 90% of the viewport width for responsiveness */
+    max-width: 600px; /* Maintain the maximum width */
+    margin-right: auto; /* Center the container horizontally */
+    margin-left: auto; /* Center the container horizontally */
+    margin-top: 50px; 
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0px 7px 29px 0px ;
+    z-index: 3; /* Ensure it stays above the overlay */
+    position: relative;
+    min-height: 300px; /* Minimum height to ensure content fits */
+}
+
+.form-group {
+    display: flex;
+    justify-content: center; /* Center the textboxes horizontally */
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: 100%; /* Makes the textboxes shorter */
+    height: 45px; /* Adjust the height to make them thicker */
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: rgb(231, 220, 220);
+    color: rgb(8, 8, 8);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+	box-sizing: border-box;
+}
+
+.form-control::placeholder {
+    color: rgb(0, 0, 0);
+	font-weight: 600;
+}
+
+.form-btn {
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+}
+
+.btn-secondary {
+    width: 100%;
+}
+
+#regText{
+	font: 1.2rem;
+	font-weight: 600;
+	color: #ffffff;
+	margin-top: 20px;
+}
+
+#formH1{
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* Slightly wider for smaller screens */
+        margin-top: 50px; /* Reduce top margin for smaller screens */
+        padding: 15px; /* Reduce padding for smaller screens */
+        min-height: 250px; /* Adjust minimum height */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 100%; /* Full width for very small screens */
+        margin-top: 30px; /* Further reduce top margin */
+        padding: 10px; /* Further reduce padding */
+        min-height: 200px; /* Adjust minimum height */
+    }
+}
+
+
