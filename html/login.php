@@ -47,7 +47,7 @@ if (isset($_SESSION['user'])) {
 			}
 		?>
 		<form action="login.php" method="post">
-		<h1 id="formH1">Sign in</h1>
+		<h1 id="formH1">Log in</h1>
 			<div class="form-group">
 				<input type="email" class="form-control" name="email" placeholder="Enter Email:">
 			</div>
