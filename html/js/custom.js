@@ -32,3 +32,4 @@ $(function () {
     $(window).on("resize", setsidebartype);
 
 });
+
