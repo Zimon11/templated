@@ -150,11 +150,11 @@ if (!isset($_SESSION['user'])) {
                                 <i class="mdi me-2 mdi-account-check"></i><span class="hide-menu">Profile</span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="table-basic.html" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
-                                    class="hide-menu">Table</span></a></li>
+                                href="buses.php" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
+                                    class="hide-menu">Buses</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="icon-material.html" aria-expanded="false"><i
-                                    class="mdi me-2 mdi-emoticon"></i><span class="hide-menu">Icon</span></a></li>
+                                href="driver.php" aria-expanded="false"><i
+                                    class="mdi me-2 mdi-emoticon"></i><span class="hide-menu">Drivers</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="map-google.php" aria-expanded="false"><i class="mdi me-2 mdi-earth"></i><span
                                     class="hide-menu">Google Map</span></a></li>

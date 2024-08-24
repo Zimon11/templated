@@ -26,7 +26,7 @@ if (isset($_SESSION['user'])) {
 				$password = $_POST['password'];
 				require_once "database.php";
 
-				$sql = "SELECT * FROM users WHERE email = '$email'";
+				$sql = "SELECT * FROM admins WHERE email = '$email'";
 				$result = mysqli_query($conn, $sql);
 				$user = mysqli_fetch_array($result, MYSQLI_ASSOC);
 				if ($user) {

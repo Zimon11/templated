@@ -131,17 +131,17 @@
                     <ul id="sidebarnav">
                         <!-- User Profile-->
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="index.html" aria-expanded="false"><i class="mdi me-2 mdi-gauge"></i><span
+                                href="index.php" aria-expanded="false"><i class="mdi me-2 mdi-gauge"></i><span
                                     class="hide-menu">Dashboard</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="pages-profile.html" aria-expanded="false">
+                                href="pages-profile.php" aria-expanded="false">
                                 <i class="mdi me-2 mdi-account-check"></i><span class="hide-menu">Profile</span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="buses.html" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
+                                href="buses.php" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
                                     class="hide-menu">Buses</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="driver.html" aria-expanded="false"><i
+                                href="driver.php" aria-expanded="false"><i
                                     class="mdi me-2 mdi-emoticon"></i><span class="hide-menu">Drivers</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="map-google.php" aria-expanded="false"><i class="mdi me-2 mdi-earth"></i><span
@@ -227,50 +227,52 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                    <div class="container">
-                        <h1>Resource Allocation</h1>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Bus No.</th>
-                                    <th>Plate No.</th>
-                                    <th>Route</th>
-                                    <th>Driver</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>ABC-123</td>
-                                    <td>
-                                        <select name="route1">
-                                            <option value="route1">Route 1</option>
-                                            <option value="route2">Route 2</option>
-                                            <option value="route3">Route 3</option>
-                                            <!-- Add more routes as needed -->
-                                        </select>
-                                    </td>
-                                    <td></td>
-                                    <td>Available</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>XYZ-456</td>
-                                    <td>
-                                        <select name="route2">
-                                            <option value="route1">Route 1</option>
-                                            <option value="route2">Route 2</option>
-                                            <option value="route3">Route 3</option>
-                                            <!-- Add more routes as needed -->
-                                        </select>
-                                    </td>
-                                    <td></td>
-                                    <td>Available</td>
-                                </tr>
-                                <!-- Add more rows as needed -->
-                            </tbody>
-                        </table>
+                    <div class="container my-5">
+                        <h1 class="text-center mb-4">Resource Allocation</h1>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Bus No.</th>
+                                        <th>Plate No.</th>
+                                        <th>Route</th>
+                                        <th>Driver</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>ABC-123</td>
+                                        <td>
+                                            <select class="form-select">
+                                                <option value="route1">Route 1</option>
+                                                <option value="route2">Route 2</option>
+                                                <option value="route3">Route 3</option>
+                                                <!-- Add more routes as needed -->
+                                            </select>
+                                        </td>
+                                        <td></td>
+                                        <td>Assigned</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>XYZ-456</td>
+                                        <td>
+                                            <select class="form-select">
+                                                <option value="route1">Route 1</option>
+                                                <option value="route2">Route 2</option>
+                                                <option value="route3">Route 3</option>
+                                                <!-- Add more routes as needed -->
+                                            </select>
+                                        </td>
+                                        <td></td>
+                                        <td>Available</td>
+                                    </tr>
+                                    <!-- Add more rows as needed -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 
                 <!-- ============================================================== -->

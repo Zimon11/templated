@@ -42,7 +42,7 @@ if (isset($_SESSION['user'])) {
 					array_push($errors, "Password does not match");
 				}
 				require_once("database.php");
-				$sql = "SELECT * FROM  users WHERE email = '$email' ";
+				$sql = "SELECT * FROM  admins WHERE email = '$email' ";
 				$result = mysqli_query($conn, $sql);
 				$rowCount = mysqli_num_rows($result);
 				if ($rowCount>0) {
@@ -55,7 +55,7 @@ if (isset($_SESSION['user'])) {
 				}
 				else {
 					
-					$sql = "INSERT INTO users (Full_name, Email, Password) VALUES (?,?,?)";
+					$sql = "INSERT INTO admins (Full_name, Email, Password) VALUES (?,?,?)";
 					$stmt = mysqli_stmt_init($conn);
 					$preparestmt = mysqli_stmt_prepare($stmt , $sql);
 					if ($preparestmt) {

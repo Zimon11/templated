@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['user'])) {
-	header("Location: index.php");
+	header("Location: user-index.php");
 }
 ?>
 <!DOCTYPE html>
@@ -41,7 +41,7 @@ if (isset($_SESSION['user'])) {
 				if ($password !== $repeat_pass) {
 					array_push($errors, "Password does not match");
 				}
-				require_once("database.php");
+				require_once("user-database.php");
 				$sql = "SELECT * FROM  users WHERE email = '$email' ";
 				$result = mysqli_query($conn, $sql);
 				$rowCount = mysqli_num_rows($result);
@@ -69,7 +69,7 @@ if (isset($_SESSION['user'])) {
 				}
 			}
 		?>
-		<form action="registration2.php" method="post">
+		<form action="user-registration.php" method="post">
 
 			<div class="form-group">
 				<input type="text" class="form-control" name="full_name" placeholder="Full name:">
@@ -92,7 +92,7 @@ if (isset($_SESSION['user'])) {
 			</div>
 
 		</form>
-		<div><p>Already registered<a href="login.php"> Login here you son of a bitch</a></p></div>
+		<div><p>Already registered<a href="user-login.php"> Login here you son of a bitch</a></p></div>
 	</div>
 </body>
 </html>

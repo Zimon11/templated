@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['user'])) {
-	header("Location: index.php");
+	header("Location: user-index.php");
 }
 ?>
 <!DOCTYPE html>
@@ -19,14 +19,14 @@ if (isset($_SESSION['user'])) {
 			if (isset($_POST["submit"])) {
 				$email = $_POST["email"];
 				$password = $_POST['password'];
-				require_once "database.php";
+				require_once "user-database.php";
 
 				$sql = "SELECT * FROM users WHERE email = '$email'";
 				$result = mysqli_query($conn, $sql);
 				$user = mysqli_fetch_array($result, MYSQLI_ASSOC);
 				if ($user) {
 					if (password_verify($password, $user["Password"])) {
-						header("Location: index.php");
+						header("Location: user-index.php");
 						session_start();
 						$_SESSION['user']="yes";
 
@@ -41,7 +41,7 @@ if (isset($_SESSION['user'])) {
 				}
 			}
 		?>
-		<form action="login.php" method="post">
+		<form action="user-login.php" method="post">
 
 			<div class="form-group">
 				<input type="email" class="form-control" name="email" placeholder="Enter Email:">
@@ -56,7 +56,7 @@ if (isset($_SESSION['user'])) {
 			</div>
 
 		</form>
-		<div><p>Not registered yet<a href="registration2.php"> Register Here you son of a bitch</a></p></div>
+		<div><p>Not registered yet<a href="user-registration.php"> Register Here you son of a bitch</a></p></div>
 	</div>
 </body>
 </html>
