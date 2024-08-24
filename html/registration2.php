@@ -55,7 +55,7 @@ if (isset($_SESSION['user'])) {
 				}
 				else {
 					
-					$sql = "INSERT INTO admins (Full_name, Email, Password) VALUES (?,?,?)";
+					$sql = "INSERT INTO admins (Admin, Email, Password) VALUES (?,?,?)";
 					$stmt = mysqli_stmt_init($conn);
 					$preparestmt = mysqli_stmt_prepare($stmt , $sql);
 					if ($preparestmt) {
