@@ -1,10 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['user'])) {
-	header("Location: login.php");
-}
-?>
-
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -19,11 +12,6 @@ if (!isset($_SESSION['user'])) {
         content="Material Pro Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
     <title>Material Pro Lite Template by WrapPixel</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
-    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
     <link rel="canonical" href="https://www.wrappixel.com/templates/materialpro-lite/" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
@@ -135,7 +123,7 @@ if (!isset($_SESSION['user'])) {
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        <aside class="left-sidebar" data-sidebarbg="skin6">
+       <aside class="left-sidebar" data-sidebarbg="skin6">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
@@ -154,22 +142,22 @@ if (!isset($_SESSION['user'])) {
                                     class="hide-menu">Buses</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="driver.php" aria-expanded="false"><i
-                                    class="mdi me-2 mdi-emoticon"></i><span class="hide-menu">Drivers</span></a></li>
+                                    class="mdi me-2 mdi-emoticon"></i><span class="hide-menu">Driver</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="map-google.php" aria-expanded="false"><i class="mdi me-2 mdi-earth"></i><span
                                     class="hide-menu">Google Map</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="pages-blank.html" aria-expanded="false"><i
-                                    class="mdi me-2 mdi-book-open-variant"></i><span class="hide-menu">Blank</span></a>
+                                href="timetable.php" aria-expanded="false"><i
+                                    class="mdi me-2 mdi-book-open-variant"></i><span class="hide-menu">Timetable</span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="pages-error-404.html" aria-expanded="false"><i class="mdi me-2 mdi-help-circle"></i><span
                                     class="hide-menu">Error 404</span></a>
                         </li>
                         <li class="text-center p-20 upgrade-btn">
-                            <a href="logout.php"
-                                class="btn btn-warning text-white mt-4">Sign out
-                                </a>
+                            <a href="https://www.wrappixel.com/templates/materialpro/"
+                                class="btn btn-warning text-white mt-4" target="_blank">Upgrade to
+                                Pro</a>
                         </li>
                     </ul>
 
@@ -210,12 +198,12 @@ if (!isset($_SESSION['user'])) {
             <div class="page-breadcrumb">
                 <div class="row align-items-center">
                     <div class="col-md-6 col-8 align-self-center">
-                        <h3 class="page-title mb-0 p-0">Google map</h3>
+                        <h3 class="page-title mb-0 p-0">Blank Page</h3>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Google map</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Blank Page</li>
                                 </ol>
                             </nav>
                         </div>
@@ -239,106 +227,66 @@ if (!isset($_SESSION['user'])) {
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
+                <?php
+// Assuming you have a database connection already
+require_once("database.php");
+$sql = "SELECT Id, Full_name, Email, license_picture FROM users WHERE verification_status = 'unverified'";
+$result = mysqli_query($conn, $sql);
+?>
 
-                <div class="container my-4">
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div id="map1" style="height: 300px;"></div>
-                <div class="dropdown mt-2">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Show Directions
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#" onclick="showDirections(map1RoutingControl, 'directions1')">Directions 1</a></li>
-                    </ul>
-                </div>
-                <div id="directions1" class="mt-2"></div>
-            </div>
-            <div class="col-md-4">
-                <div id="map2" style="height: 300px;"></div>
-                <div class="dropdown mt-2">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                        Show Directions
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item" href="#" onclick="showDirections(map2RoutingControl, 'directions2')">Directions 2</a></li>
-                    </ul>
-                </div>
-                <div id="directions2" class="mt-2"></div>
-            </div>
-            <div class="col-md-4">
-                <div id="map3" style="height: 300px;"></div>
-                <div class="dropdown mt-2">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
-                        Show Directions
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                        <li><a class="dropdown-item" href="#" onclick="showDirections(map3RoutingControl, 'directions3')">Directions 3</a></li>
-                    </ul>
-                </div>
-                <div id="directions3" class="mt-2"></div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        var map1RoutingControl, map2RoutingControl, map3RoutingControl;
-
-        function initMap(mapId, departureLat, departureLng, destinationLat, destinationLng, routingControlVariable) {
-            var map = L.map(mapId).setView([departureLat, departureLng], 13);
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-
-            L.marker([departureLat, departureLng]).addTo(map)
-                .bindPopup('Departure Location')
-                .openPopup();
-
-            L.marker([destinationLat, destinationLng]).addTo(map)
-                .bindPopup('Destination Location')
-                .openPopup();
-
-            routingControlVariable = L.Routing.control({
-                waypoints: [
-                    L.latLng(departureLat, departureLng),
-                    L.latLng(destinationLat, destinationLng)
-                ],
-                routeWhileDragging: false,
-                show: false,
-                addWaypoints: false,
-                lineOptions: {
-                    addWaypoints: false
-                },
-                createMarker: function(i, wp) {
-                    return L.marker(wp.latLng, {
-                        draggable: false
-                    }).bindPopup(i === 0 ? "Departure" : "Destination");
-                },
-                summaryTemplate: null,
-                collapsible: true,
-                autoRoute: true,
-            }).addTo(map);
-
-            return routingControlVariable;
+<table>
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>License Picture</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<tr>
+                    <td>{$row['Full_name']}</td>
+                    <td>{$row['Email']}</td>
+                    <td><img src='{$row['license_picture']}' alt='License Picture' width='100'></td>
+                    <td>
+                        <form method='post' action='verify_user.php'>
+                            <input type='hidden' name='user_id' value='{$row['Id']}'>
+                            <button type='submit' class='btn btn-success'>Verify</button>
+                        </form>
+                    </td>
+                </tr>";
         }
-
-        function showDirections(routingControl, directionsDivId) {
-            routingControl.route();
-            routingControl.on('routesfound', function(e) {
-                var routes = e.routes;
-                var summary = routes[0].summary;
-                var directionsText = `Total distance: ${summary.totalDistance} meters, Total time: ${Math.round(summary.totalTime / 60)} minutes.`;
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Process file upload
+            $uploadDir = 'uploads\licenses';
+            $uploadFile = $uploadDir . basename($_FILES['license_picture']['name']);
+            
+            if (move_uploaded_file($_FILES['license_picture']['tmp_name'], $uploadFile)) {
+                // File upload successful
+                $filePath = $uploadFile; // Save this path to the database
                 
-                document.getElementById(directionsDivId).innerHTML = directionsText;
-            });
+                // Update the database with the file path
+                $user_id = $_SESSION['user_id']; // Assuming user ID is stored in session
+                $sql = "UPDATE users SET license_picture = ? WHERE id = ?";
+                
+                if ($stmt = mysqli_prepare($conn, $sql)) {
+                    mysqli_stmt_bind_param($stmt, 'si', $filePath, $user_id);
+                    if (mysqli_stmt_execute($stmt)) {
+                        echo "License picture uploaded and database updated successfully!";
+                    } else {
+                        echo "Error updating database.";
+                    }
+                }
+            } else {
+                echo "File upload failed.";
+            }
         }
-
-        map1RoutingControl = initMap('map1', 40.7128, -74.0060, 40.730610, -73.935242, map1RoutingControl);
-        map2RoutingControl = initMap('map2', 34.0522, -118.2437, 34.052235, -118.243683, map2RoutingControl);
-        map3RoutingControl = initMap('map3', 51.5074, -0.1278, 51.500729, -0.124625, map3RoutingControl);
-
-    </script>
+        
+        ?>
+    </tbody>
+</table>
 
 
                 <!-- ============================================================== -->
@@ -382,14 +330,8 @@ if (!isset($_SESSION['user'])) {
     <script src="js/waves.js"></script>
     <!--Menu sidebar -->
     <script src="js/sidebarmenu.js"></script>
-    <!-- google maps api -->
-    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-    <script src="../assets/plugins/gmaps/gmaps.min.js"></script>
-    <script src="../assets/plugins/gmaps/jquery.gmaps.js"></script>
     <!--Custom JavaScript -->
     <script src="js/custom.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>

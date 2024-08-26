@@ -19,16 +19,11 @@ if (!isset($_SESSION['user'])) {
         content="Material Pro Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
     <title>Material Pro Lite Template by WrapPixel</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
-    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
     <link rel="canonical" href="https://www.wrappixel.com/templates/materialpro-lite/" />
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
     <!-- Custom CSS -->
-    <link href="css/style.min.css" rel="stylesheet">
+    <link href="../css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -66,14 +61,14 @@ if (!isset($_SESSION['user'])) {
                         <b class="logo-icon">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="../assets/images/logo-light-icon.png" alt="homepage" class="dark-logo" />
+                            <img src="../../assets/images/logo-light-icon.png" alt="homepage" class="dark-logo" />
 
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
                             <!-- dark Logo text -->
-                            <img src="../assets/images/logo-light-text.png" alt="homepage" class="dark-logo" />
+                            <img src="../../assets/images/logo-light-text.png" alt="homepage" class="dark-logo" />
 
                         </span>
                     </a>
@@ -121,7 +116,7 @@ if (!isset($_SESSION['user'])) {
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../assets/images/users/1.jpg" alt="user" class="profile-pic me-2">Markarn Doe
+                                <img src="../../assets/images/users/1.jpg" alt="user" class="profile-pic me-2">Markarn Doe
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown"></ul>
                         </li>
@@ -167,8 +162,8 @@ if (!isset($_SESSION['user'])) {
                                     class="hide-menu">Error 404</span></a>
                         </li>
                         <li class="text-center p-20 upgrade-btn">
-                            <a href="logout.php"
-                                class="btn btn-warning text-white mt-4">Sign out
+                            <a href="user-logout.php"
+                                class="btn btn-warning text-white mt-4" target="_blank">Sign out
                                 </a>
                         </li>
                     </ul>
@@ -210,12 +205,12 @@ if (!isset($_SESSION['user'])) {
             <div class="page-breadcrumb">
                 <div class="row align-items-center">
                     <div class="col-md-6 col-8 align-self-center">
-                        <h3 class="page-title mb-0 p-0">Google map</h3>
+                        <h3 class="page-title mb-0 p-0">Profile</h3>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Google map</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Profile</li>
                                 </ol>
                             </nav>
                         </div>
@@ -239,108 +234,23 @@ if (!isset($_SESSION['user'])) {
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-
-                <div class="container my-4">
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div id="map1" style="height: 300px;"></div>
-                <div class="dropdown mt-2">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Show Directions
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#" onclick="showDirections(map1RoutingControl, 'directions1')">Directions 1</a></li>
-                    </ul>
-                </div>
-                <div id="directions1" class="mt-2"></div>
-            </div>
-            <div class="col-md-4">
-                <div id="map2" style="height: 300px;"></div>
-                <div class="dropdown mt-2">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                        Show Directions
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item" href="#" onclick="showDirections(map2RoutingControl, 'directions2')">Directions 2</a></li>
-                    </ul>
-                </div>
-                <div id="directions2" class="mt-2"></div>
-            </div>
-            <div class="col-md-4">
-                <div id="map3" style="height: 300px;"></div>
-                <div class="dropdown mt-2">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
-                        Show Directions
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                        <li><a class="dropdown-item" href="#" onclick="showDirections(map3RoutingControl, 'directions3')">Directions 3</a></li>
-                    </ul>
-                </div>
-                <div id="directions3" class="mt-2"></div>
-            </div>
+                <!-- Row -->
+    <form action="upload_license.php" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+    <div class="form-group">
+        <label class="col-md-12 mb-0">Upload Driver's License</label>
+        <div class="col-md-12">
+            <input type="file" name="license_picture" class="form-control ps-0 form-control-line">
+            <input type="submit" value="Submit">
         </div>
     </div>
-
-    <script>
-        var map1RoutingControl, map2RoutingControl, map3RoutingControl;
-
-        function initMap(mapId, departureLat, departureLng, destinationLat, destinationLng, routingControlVariable) {
-            var map = L.map(mapId).setView([departureLat, departureLng], 13);
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-
-            L.marker([departureLat, departureLng]).addTo(map)
-                .bindPopup('Departure Location')
-                .openPopup();
-
-            L.marker([destinationLat, destinationLng]).addTo(map)
-                .bindPopup('Destination Location')
-                .openPopup();
-
-            routingControlVariable = L.Routing.control({
-                waypoints: [
-                    L.latLng(departureLat, departureLng),
-                    L.latLng(destinationLat, destinationLng)
-                ],
-                routeWhileDragging: false,
-                show: false,
-                addWaypoints: false,
-                lineOptions: {
-                    addWaypoints: false
-                },
-                createMarker: function(i, wp) {
-                    return L.marker(wp.latLng, {
-                        draggable: false
-                    }).bindPopup(i === 0 ? "Departure" : "Destination");
-                },
-                summaryTemplate: null,
-                collapsible: true,
-                autoRoute: true,
-            }).addTo(map);
-
-            return routingControlVariable;
-        }
-
-        function showDirections(routingControl, directionsDivId) {
-            routingControl.route();
-            routingControl.on('routesfound', function(e) {
-                var routes = e.routes;
-                var summary = routes[0].summary;
-                var directionsText = `Total distance: ${summary.totalDistance} meters, Total time: ${Math.round(summary.totalTime / 60)} minutes.`;
-                
-                document.getElementById(directionsDivId).innerHTML = directionsText;
-            });
-        }
-
-        map1RoutingControl = initMap('map1', 40.7128, -74.0060, 40.730610, -73.935242, map1RoutingControl);
-        map2RoutingControl = initMap('map2', 34.0522, -118.2437, 34.052235, -118.243683, map2RoutingControl);
-        map3RoutingControl = initMap('map3', 51.5074, -0.1278, 51.500729, -0.124625, map3RoutingControl);
-
-    </script>
+</form>
 
 
+
+                    <!-- Column -->
+                </div>
+                <!-- Row -->
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -374,22 +284,16 @@ if (!isset($_SESSION['user'])) {
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="../assets/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="../../assets/plugins/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="../assets/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/app-style-switcher.js"></script>
+    <script src="../../assets/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/app-style-switcher.js"></script>
     <!--Wave Effects -->
-    <script src="js/waves.js"></script>
+    <script src="../js/waves.js"></script>
     <!--Menu sidebar -->
-    <script src="js/sidebarmenu.js"></script>
-    <!-- google maps api -->
-    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-    <script src="../assets/plugins/gmaps/gmaps.min.js"></script>
-    <script src="../assets/plugins/gmaps/jquery.gmaps.js"></script>
+    <script src="../js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
-    <script src="js/custom.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 
 </html>

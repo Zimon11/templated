@@ -154,8 +154,8 @@ if (!isset($_SESSION['user'])) {
                                 href="map-google.php" aria-expanded="false"><i class="mdi me-2 mdi-earth"></i><span
                                     class="hide-menu">Google Map</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="pages-blank.html" aria-expanded="false"><i
-                                    class="mdi me-2 mdi-book-open-variant"></i><span class="hide-menu">Blank</span></a>
+                                href="timetable.php" aria-expanded="false"><i
+                                    class="mdi me-2 mdi-book-open-variant"></i><span class="hide-menu">Timetable</span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="pages-error-404.html" aria-expanded="false"><i class="mdi me-2 mdi-help-circle"></i><span

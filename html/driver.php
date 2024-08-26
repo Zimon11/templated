@@ -1,3 +1,8 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -147,7 +152,7 @@
                                 href="map-google.php" aria-expanded="false"><i class="mdi me-2 mdi-earth"></i><span
                                     class="hide-menu">Google Map</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="pages-blank.html" aria-expanded="false"><i
+                                href="timetable.php" aria-expanded="false"><i
                                     class="mdi me-2 mdi-book-open-variant"></i><span class="hide-menu">Blank</span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
@@ -228,36 +233,47 @@
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
 
-                    <div class="container my-5">
-                        <h1 class="text-center mb-4">Driver Management</h1>
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-hover">
-                                <thead class="table-dark">
-                                    <tr>
-                                        <th>Driver's Name</th>
-                                        <th>Contact No.</th>
-                                        <th>Status</th>
-                                        <th>Assigned Bus</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>John Doe</td>
-                                        <td>(123) 456-7890</td>
-                                        <td>Available</td>
-                                        <td><button class="btn btn-primary">Assign a Bus</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jane Smith</td>
-                                        <td>(098) 765-4321</td>
-                                        <td>On Duty</td>
-                                        <td><button class="btn btn-primary">Assign a Bus</button></td>
-                                    </tr>
-                                    <!-- Add more rows as needed -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                <?php
+require_once("Users/user-database.php");
+
+// Fetch all drivers from the database
+$sql = "SELECT Full_name, Contact, Status, Assigned_bus FROM users WHERE verification_status = 'verified'";
+$result = mysqli_query($conn, $sql);
+
+?>
+
+<div class="container my-5">
+    <h1 class="text-center mb-4">Driver Management</h1>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Driver's Name</th>
+                    <th>Contact No.</th>
+                    <th>Status</th>
+                    <th>Assigned Bus</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>
+                                <td>{$row['Full_name']}</td>
+                                <td>{$row['Contact']}</td>
+                                <td>{$row['Status']}</td>
+                                <td><button class='btn btn-primary'>Assign a Bus</button></td>
+                            </tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='4' class='text-center'>No drivers registered yet.</td></tr>";
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
                 
                 
                 <!-- ============================================================== -->
